@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>تسجيل الدخول</title>
+</head>
+<body>
+<div class="content">
+    <div class="wrapper">
+        <div class="container main">
+            <div class="row">
+                <div class="col-md-6 side-image">
+                    <img src="../media/logo.png" alt="Logo" class="side-image-logo">
+                </div>
+                <div class="col-md-6 right">
+                    <div class="input-box">
+                        <div class="flex-cradle">
+                            <div class="slider-cradle">
+                                <div class="option-1">AR</div>
+                                <div class="option-2">EN</div>
+                                <div class="handle"></div>
+                            </div>	
+                        </div>
+
+                        <header>تسجيل الدخول</header>
+                        <form onsubmit="validateLogin(event)" dir="rtl">
+                            <div class="mb-3">
+                                <label for="email" class="form-label"><b>البريد الإلكتروني</b></label>
+                                <input type="text" class="form-control" name="email" id="email" required />
+                                <div id="email-error" class="error-message"></div> <!-- Error message for email -->
+                            </div> 
+                            
+                            <div class="mb-3">  
+                                <label for="pass" class="form-label"><b>كلمة المرور</b></label>  
+                                <input type="password" class="form-control" name="pass" id="pass" required />
+                                <div id="password-error" class="error-message"></div> <!-- Error message for password -->
+                            </div> 
+                            
+                            <div class="rememberMe">
+                                <input type="checkbox" id="check">    
+                                <label for="check">تذكرني</label>
+                            </div>
+                            
+                            <div class="submit-button">
+                                <input type="submit" class="submit" value="تسجيل الدخول">
+                            </div> 
+
+                            <div class="signin">
+                                <span>ليس لديك حساب؟ <a href="../signup/signup2.html" id="back-to-signup">تسجيل </a></span>
+                            </div>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+        // If the user is already logged in, redirect them to the home page
+        if (loggedInUser) {
+            window.location.href = "../homepage/homepage.html";
+        }
+    });
+</script>
+
+</body>
+</html>
